@@ -175,7 +175,7 @@ nets = dict(
         POW_FUNC=lambda data: pack.IntType(256).unpack(__import__('ltc_scrypt').getPoWHash(data)),
         BLOCK_PERIOD=60,
         SYMBOL='LKY',
-        CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'Luckycoin') if platform.system() == 'Windows' else os.path.expanduser('~/Li$
+        CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'Luckycoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/luckycoin/') if platform.system() == 'Darwin' else os.path.expanduser('~/.luckycoin'), 'luckycoin.conf'),
         BLOCK_EXPLORER_URL_PREFIX='http://d.evco.in/abe/block/',
         ADDRESS_EXPLORER_URL_PREFIX='http://d.evco.in/abe/address/',
         SANE_TARGET_RANGE=(2**256//1000000000 - 1, 2**256//1000 - 1),
