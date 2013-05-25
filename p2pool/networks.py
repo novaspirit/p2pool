@@ -136,6 +136,24 @@ nets = dict(
         ANNOUNCE_CHANNEL='#p2pool-alt',
         VERSION_CHECK=lambda v: True,
     ),
+    digital=math.Object(
+        PARENT=networks.nets['digital'],
+        SHARE_PERIOD=30, # seconds target spacing
+        CHAIN_LENGTH=24*60*60//10, # shares
+        REAL_CHAIN_LENGTH=24*60*60//10, # shares
+        TARGET_LOOKBEHIND=200, # shares coinbase maturity
+        SPREAD=30, # blocks
+        IDENTIFIER='a5aed03050126d6c'.decode('hex'),
+        PREFIX='b6c0601991aa19a2'.decode('hex'),
+        P2P_PORT=24396,
+        MIN_TARGET=0,
+        MAX_TARGET=2**256//2**20 - 1,
+        PERSIST=True,
+        WORKER_PORT=24397,
+        BOOTSTRAP_ADDRS='pool.bounceme.net poolnl.bounceme.net'.split(' '),
+        ANNOUNCE_CHANNEL='#p2pool-alt',
+        VERSION_CHECK=lambda v: True,
+    ),
 
 )
 for net_name, net in nets.iteritems():
